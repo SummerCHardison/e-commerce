@@ -26,6 +26,10 @@ ProductTag.init(
         key: 'id'
       }
     }
+    // above code adds the following columns to the product_tag table
+    // id, an integer that cannot be null and is a primary key that can be auto-incremented
+    // product_id, an integer that references the id key from the product table
+    // tag_id, an integer that references the id key from the tag table
   },
   {
     sequelize,

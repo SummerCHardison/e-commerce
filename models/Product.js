@@ -41,6 +41,12 @@ Product.init(
         key: 'id'
       }
     }
+    // above code adds the following columns to the product table
+    // id, an integer that cannot be null and is a primary key that can be auto-incremented
+    // product_name, a string that cannot be null
+    // price, a decimal that cannot be null and is validated to check that it's a decimal
+    // stock, an integer that cannot be null, will default to 10, and is validated to check that it's a number
+    // category_id, an integer that references the id key from the category table
   },
   {
     sequelize,

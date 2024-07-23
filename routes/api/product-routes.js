@@ -9,10 +9,12 @@ router.get('/', async (req, res) => {
     const productsData = await Product.findAll({
       include: [{model: Category}, {model: Tag, through: ProductTag, as: "productTag"}]
     });
+    // find all instances of product and include connections to category and tag
     res.status(200).json(productsData);
   } catch (err) {
     res.status(500).json(err);
   }
+  // return 200 status and the data if success, if error retun 500 and log the error
 });
 
 // get one product
@@ -21,6 +23,7 @@ router.get('/:id', async (req, res) => {
     const productsData = await Product.findByPk(req.params.id, {
       include: [{model: Category}, {model: Tag, through: ProductTag, as: "productTag"}]
     });
+    // find instances of product with the specified primary key value and include connections to category and tag
 
     if (!productsData) {
       res.status(404).json({ message: 'No product found with this id!' });
@@ -31,6 +34,7 @@ router.get('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+  // return 200 status and the data if success, if no id return 404 and a message, if error retun 500 and log the error
 });
 
 // create new product
@@ -117,6 +121,7 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id
       }
     });
+    // delete instance of product where id matches the param value
 
     if(!productsData){
       res.status(404).json({message: "No product found with this id!"});
@@ -126,6 +131,7 @@ router.delete('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+  // return 200 status and the data if success, if no id return 404 and a message, if error retun 500 and log the error
 });
 
 module.exports = router;
