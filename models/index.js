@@ -20,8 +20,6 @@ Product.belongsToMany(Tag, {
     model: ProductTag
   },
 
-  onDelete: 'RESTRICT',
-
   as: 'productTag'
 });
 
@@ -30,8 +28,6 @@ Tag.belongsToMany(Product, {
   through: {
     model: ProductTag
   },
-  
-  onDelete: 'RESTRICT',
 
   as: "productTag"
 });
