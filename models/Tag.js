@@ -15,6 +15,7 @@ Tag.init(
     tag_name: {
       type: DataTypes.STRING
     }
+    // above code sets up columns for the tag table called id, an integer that cannot be null and is a primary key that can be auto-incremented, and tag_name, a string
   },
   {
     sequelize,
